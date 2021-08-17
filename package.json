@@ -1,0 +1,27 @@
+{
+  "name": "tiendita",
+  "version": "1.0.0",
+  "description": "<div align=\"center\"> <img width=\"120px\"  src=\"https://raw.githubusercontent.com/no-te-rindas/logo/main/Logo/LeonidasEsteban-destello-envolvente-cuadrada.png\" /> </div>",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "Fernando Quinteros Gutierrez <ferkki@hotmail.com> (https://twitter.com/devferx)",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "next": "^11.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.6.1",
+    "@types/react": "^17.0.18",
+    "typescript": "^4.3.5"
+  }
+}
