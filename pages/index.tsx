@@ -5,7 +5,7 @@ const StyledSection = styled.section`
 `;
 
 function HomePage() {
-  return <StyledSection>Welcome to Next.js!</StyledSection>;
+  return <StyledSection></StyledSection>;
 }
 
 export default HomePage;
