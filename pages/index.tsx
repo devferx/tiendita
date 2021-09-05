@@ -1,11 +1,11 @@
-import styled from "@emotion/styled";
-
-const StyledSection = styled.section`
-  color: hotpink;
-`;
+import { Header } from "../containers/home/components/Header";
 
 function HomePage() {
-  return <StyledSection></StyledSection>;
+  return (
+    <section>
+      <Header />
+    </section>
+  );
 }
 
 export default HomePage;
