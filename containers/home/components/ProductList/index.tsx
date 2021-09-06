@@ -5,15 +5,24 @@ import { Product } from "../Product";
 interface ProductListProps {
   title: string;
   products: IProduct[];
+  displayDiscount?: boolean;
 }
 
-export const ProductList = ({ title, products }: ProductListProps) => {
+export const ProductList = ({
+  title,
+  products,
+  displayDiscount = true,
+}: ProductListProps) => {
   return (
     <ProductListContainer>
       <h3 className="title">{title}</h3>
       <div className="product-list">
         {products.map((product: IProduct, i) => (
-          <Product key={product.name + i} product={product} />
+          <Product
+            key={product.name + i}
+            product={product}
+            displayDiscount={displayDiscount}
+          />
         ))}
       </div>
     </ProductListContainer>

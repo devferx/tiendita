@@ -25,6 +25,11 @@ function HomePage({ discounts, popular }: HomePageProps) {
       <div className="wrapper">
         <Hero />
         <ProductList title="Ofertas" products={discounts} />
+        <ProductList
+          title="Populares"
+          products={popular}
+          displayDiscount={false}
+        />
       </div>
     </section>
   );
