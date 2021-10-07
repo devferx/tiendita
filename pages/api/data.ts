@@ -107,7 +107,7 @@ export const data: IData = {
     {
       name: "Huevos San Juan",
       desc: "Fugiat in consequat non commodo elit deserunt esse.Reprehenderit culpa tempor ut commodo cupidatat mollit do do.",
-      imageURL: "/assets/images/colgate.png",
+      imageURL: "/assets/images/eggs.png",
       price: 37.5,
       weight: 18,
       weightUnit: "u.",

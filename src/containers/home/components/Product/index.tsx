@@ -1,5 +1,8 @@
-import { StyledProduct } from "./styles";
+import { useState } from "react";
+
+import { ProductModal } from "@containers/home/components/ProductModal";
 import { IProduct } from "@interfaces/product";
+import { StyledProduct } from "./styles";
 
 interface Props {
   product: IProduct;
@@ -7,6 +10,10 @@ interface Props {
 }
 
 export const Product = ({ product, displayDiscount }: Props) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => setShowModal(!showModal);
+
   return (
     <StyledProduct>
       {product.discountPercentage && displayDiscount && (
@@ -31,7 +38,13 @@ export const Product = ({ product, displayDiscount }: Props) => {
         )}
       </div>
 
-      <button>Agregar</button>
+      <button onClick={toggleModal}>Agregar</button>
+
+      <ProductModal
+        product={product}
+        isActive={showModal}
+        toggleModal={toggleModal}
+      />
     </StyledProduct>
   );
 };
