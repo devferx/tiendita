@@ -19,22 +19,21 @@ export const StyledModalContainer = styled.section<StyledModalContainerProps>`
   background: rgba(51, 41, 39, 0.8);
   visibility: hidden;
   z-index: 9999;
+  opacity: 0;
+  transition: 0.6s;
   ${(p) =>
     p.isActive &&
     css`
       visibility: visible;
+      opacity: 1;
+
+      aside {
+        transform: translateY(0px);
+      }
     `}
+
   @media screen and (min-width: 768px) {
     padding-top: 80px;
-  }
-`;
-
-const fadeInAnimation = keyframes`
-  from {
-    transform: translateY(-1000px);
-  }
-  to {
-    transform: translateY(0px);
   }
 `;
 
@@ -44,8 +43,8 @@ export const Modal = styled.aside`
   background: white;
   padding: 16px;
   border-radius: 16px;
-  animation: ${fadeInAnimation} 1s;
-  animation-delay: 0ms;
+  transform: translateY(-1000px);
+  transition: 0.6s transform;
 
   .btn-close {
     display: block;

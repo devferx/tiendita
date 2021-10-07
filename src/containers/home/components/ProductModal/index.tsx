@@ -25,7 +25,7 @@ export const ProductModal = ({
     <StyledModalContainer isActive={isActive}>
       <Modal>
         <button className="btn-close" onClick={toggleModal}>
-          <img src="/assets/icons/close.svg" alt="" />
+          <img src="/assets/icons/close.svg" alt="close icon" />
         </button>
         <ProductInfo product={product} />
       </Modal>

@@ -6,8 +6,8 @@ export const StyledProductInfo = styled.section`
 
   .image {
     margin: 0 auto;
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    max-width: 300px;
     object-fit: contain;
   }
 
@@ -76,5 +76,9 @@ export const StyledProductInfo = styled.section`
   @media screen and (min-width: 768px) {
     grid-template-columns: 5fr 4.5fr;
     gap: 24px;
+
+    .actions {
+      flex-direction: row;
+    }
   }
 `;
