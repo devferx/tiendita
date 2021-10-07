@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "lib": [
       "dom",
@@ -16,7 +17,21 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "paths": {
+      "@context/*": [
+        "./src/context/*"
+      ],
+      "@containers/*": [
+        "./src/containers/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@interfaces/*": [
+        "./src/interfaces/*"
+      ],
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -25,5 +40,5 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }

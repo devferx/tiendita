@@ -1,4 +1,4 @@
-import { IProduct } from "../../interfaces/product";
+import { IProduct } from "@interfaces/product";
 
 export interface IData {
   discounts: IProduct[];

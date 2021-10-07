@@ -1,5 +1,5 @@
 import { ProductListContainer } from "./styles";
-import { IProduct } from "../../../../interfaces/product";
+import { IProduct } from "@interfaces/product";
 import { Product } from "../Product";
 
 interface ProductListProps {

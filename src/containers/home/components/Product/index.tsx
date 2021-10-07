@@ -1,5 +1,5 @@
 import { StyledProduct } from "./styles";
-import { IProduct } from "../../../../interfaces/product";
+import { IProduct } from "@interfaces/product";
 
 interface Props {
   product: IProduct;

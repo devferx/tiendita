@@ -1,10 +1,10 @@
 import { GetStaticProps } from "next";
 import fetch from "isomorphic-unfetch";
 
-import { Header } from "../containers/home/components/Header";
-import { Hero } from "../containers/home/components/Hero";
-import { ProductList } from "../containers/home/components/ProductList";
-import { IProduct } from "../interfaces/product";
+import { Header } from "@containers/home/components/Header";
+import { Hero } from "@containers/home/components/Hero";
+import { ProductList } from "@containers/home/components/ProductList";
+import { IProduct } from "@interfaces/product";
 
 export const getStaticProps: GetStaticProps = async () => {
   const results = await fetch(`${process.env.SERVER}/api/products`);

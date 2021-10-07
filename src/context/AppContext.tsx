@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { IProduct } from "../interfaces/product";
+import { IProduct } from "@interfaces/product";
 
 interface IAppContext {
   card: IProduct[];

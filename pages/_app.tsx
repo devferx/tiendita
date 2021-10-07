@@ -1,8 +1,8 @@
 import { Toaster } from "react-hot-toast";
 import type { AppProps } from "next/app";
 
-import { AppContextProvider } from "../context/AppContext";
-import { GlobalStyles } from "../styles/globalStyles";
+import { AppContextProvider } from "@context/AppContext";
+import { GlobalStyles } from "@styles/globalStyles";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
