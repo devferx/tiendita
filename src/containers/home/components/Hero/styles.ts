@@ -7,6 +7,7 @@ export const StyledHero = styled.section`
   height: 132px;
   border-radius: 16px;
   overflow: hidden;
+  margin-top: 152px;
 
   img {
     position: relative;
@@ -42,6 +43,7 @@ export const StyledHero = styled.section`
 
   @media screen and (min-width: 768px) {
     height: 250px;
+    margin-top: 90px;
 
     h1 {
       font: var(--headline1);

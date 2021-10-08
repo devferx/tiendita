@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { CartContext } from "@context/CartContext";
 import { StyledHeader } from "./styles";
 
 export const Header = () => {
+  const { cartLength } = useContext(CartContext);
+
   return (
     <StyledHeader>
       <div className="header-container wrapper">
@@ -18,7 +22,8 @@ export const Header = () => {
         <span className="vertical-divider" />
 
         <a className="cart-link" href="/">
-          <img src="/assets/icons/cart.svg" alt="card" />5
+          <img src="/assets/icons/cart.svg" alt="card" />
+          {cartLength}
         </a>
       </div>
     </StyledHeader>

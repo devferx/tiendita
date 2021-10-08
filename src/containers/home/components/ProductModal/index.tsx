@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import ReactDOM from "react-dom";
 
 import { AppContext } from "@context/AppContext";
@@ -27,7 +27,7 @@ export const ProductModal = ({
         <button className="btn-close" onClick={toggleModal}>
           <img src="/assets/icons/close.svg" alt="close icon" />
         </button>
-        <ProductInfo product={product} />
+        <ProductInfo product={product} toggleModal={toggleModal} />
       </Modal>
     </StyledModalContainer>,
     document.getElementById("modal-root")

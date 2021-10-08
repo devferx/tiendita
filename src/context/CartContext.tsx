@@ -1,11 +1,13 @@
 import { createContext, useReducer } from "react";
+import {
+  CartItem,
+  cartReducer,
+  CartState,
+  initialCartState,
+} from "./cartReducer";
 
-import { IProduct } from "@interfaces/product";
-import { cartReducer, initialCartState } from "./cartReducer";
-
-interface CartContextProps {
-  cart: IProduct[];
-  addToCard: (product: IProduct) => void;
+interface CartContextProps extends CartState {
+  addToCard: (product: CartItem) => void;
   removeFromCard: (productId: string) => void;
   clearCard: () => void;
 }
@@ -19,7 +21,9 @@ interface AppContextProviderProps {
 export const CartProvider = ({ children }: AppContextProviderProps) => {
   const [state, dispatch] = useReducer(cartReducer, initialCartState);
 
-  const addToCard = (product: IProduct) => {};
+  const addToCard = (product: CartItem) => {
+    dispatch({ type: "ADD_PRODUCT", payload: product });
+  };
   const removeFromCard = (productId: string) => {};
   const clearCard = () => {};
 
