@@ -5,6 +5,8 @@ import { Header } from "@containers/home/components/Header";
 import { Hero } from "@containers/home/components/Hero";
 import { ProductList } from "@containers/home/components/ProductList";
 import { IProduct } from "@interfaces/product";
+import { useContext, useEffect } from "react";
+import { AppContext } from "@context/AppContext";
 
 export const getStaticProps: GetStaticProps = async () => {
   const results = await fetch(`${process.env.SERVER}/api/products`);
@@ -19,6 +21,12 @@ interface HomePageProps {
 }
 
 function HomePage({ discounts, popular }: HomePageProps) {
+  const { setGlobalPopularProducts } = useContext(AppContext);
+
+  useEffect(() => {
+    setGlobalPopularProducts(popular);
+  }, []);
+
   return (
     <section>
       <Header />

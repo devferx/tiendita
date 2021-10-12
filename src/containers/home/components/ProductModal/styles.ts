@@ -21,6 +21,7 @@ export const StyledModalContainer = styled.section<StyledModalContainerProps>`
   z-index: 9999;
   opacity: 0;
   transition: 0.6s;
+
   ${(p) =>
     p.isActive &&
     css`
@@ -33,18 +34,29 @@ export const StyledModalContainer = styled.section<StyledModalContainerProps>`
     `}
 
   @media screen and (min-width: 768px) {
-    padding-top: 80px;
+    padding: 80px 0;
   }
+`;
+
+export const BackgroundEventContainer = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: transparent;
 `;
 
 export const Modal = styled.aside`
   width: 100%;
+  height: 100%;
   max-width: 1068px;
-  background: white;
+  background: #ffff;
   padding: 16px;
   border-radius: 16px;
   transform: translateY(-1000px);
   transition: 0.6s transform;
+  overflow-y: auto;
 
   .btn-close {
     display: block;
@@ -52,6 +64,7 @@ export const Modal = styled.aside`
     height: 40px;
     border: none;
     margin-left: auto;
+    margin-bottom: 50px;
     background: var(--cocoabrown);
     border-radius: 50%;
     cursor: pointer;

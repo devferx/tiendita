@@ -1,6 +1,11 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-export const ProductListContainer = styled.section`
+interface ProductListContainerProps {
+  isModal: boolean;
+}
+
+export const ProductListContainer = styled.section<ProductListContainerProps>`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -9,6 +14,15 @@ export const ProductListContainer = styled.section`
   border-radius: 16px;
   box-shadow: 0px 11px 29px rgba(0, 0, 0, 0.05);
   margin: 24px 0;
+
+  ${(p) =>
+    p.isModal &&
+    css`
+      box-shadow: none;
+      padding: 0px !important;
+      margin: 0;
+      margin: 20px 0;
+    `}
 
   .title {
     font: var(--headline3);

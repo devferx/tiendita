@@ -6,15 +6,17 @@ interface ProductListProps {
   title: string;
   products: IProduct[];
   displayDiscount?: boolean;
+  isModal?: boolean;
 }
 
 export const ProductList = ({
   title,
   products,
   displayDiscount = true,
+  isModal = false,
 }: ProductListProps) => {
   return (
-    <ProductListContainer>
+    <ProductListContainer isModal={isModal}>
       <h3 className="title">{title}</h3>
       <div className="product-list">
         {products.map((product: IProduct, i) => (
