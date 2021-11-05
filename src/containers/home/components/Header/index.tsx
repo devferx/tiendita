@@ -1,9 +1,12 @@
 import { useContext } from "react";
+
 import { CartContext } from "@context/CartContext";
+import { AppContext } from "@context/AppContext";
 import { StyledHeader } from "./styles";
 
 export const Header = () => {
   const { cartLength } = useContext(CartContext);
+  const { toggleModalRightIsOpen } = useContext(AppContext);
 
   return (
     <StyledHeader>
@@ -21,10 +24,10 @@ export const Header = () => {
 
         <span className="vertical-divider" />
 
-        <a className="cart-link" href="/">
+        <button className="cart-btn" onClick={toggleModalRightIsOpen}>
           <img src="/assets/icons/cart.svg" alt="card" />
           {cartLength}
-        </a>
+        </button>
       </div>
     </StyledHeader>
   );

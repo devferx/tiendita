@@ -3,13 +3,10 @@ import ReactDOM from "react-dom";
 
 import { AppContext } from "@context/AppContext";
 import { IProduct } from "@interfaces/product";
-import {
-  BackgroundEventContainer,
-  Modal,
-  StyledModalContainer,
-} from "./styles";
 import { ProductInfo } from "../ProductInfo";
 import { ProductList } from "../ProductList";
+import { Modal, StyledModalContainer } from "./styles";
+import { BackgroundEventContainer } from "@shared/components/BackgroundEventContainer";
 
 interface Props {
   product: IProduct;

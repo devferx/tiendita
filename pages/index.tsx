@@ -7,6 +7,7 @@ import { ProductList } from "@containers/home/components/ProductList";
 import { IProduct } from "@interfaces/product";
 import { useContext, useEffect } from "react";
 import { AppContext } from "@context/AppContext";
+import { ModalRight } from "@containers/home/components/ModalRight";
 
 export const getStaticProps: GetStaticProps = async () => {
   const results = await fetch(`${process.env.SERVER}/api/products`);
@@ -39,6 +40,7 @@ function HomePage({ discounts, popular }: HomePageProps) {
           displayDiscount={false}
         />
       </div>
+      <ModalRight />
     </section>
   );
 }

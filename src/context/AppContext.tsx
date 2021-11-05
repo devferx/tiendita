@@ -3,7 +3,9 @@ import { IProduct } from "@interfaces/product";
 
 interface IAppContext {
   isBrowser: boolean;
+  modalRightIsOpen: boolean;
   popularProducts: IProduct[];
+  toggleModalRightIsOpen: () => void;
   setGlobalPopularProducts: (products: IProduct[]) => void;
 }
 
@@ -15,6 +17,7 @@ interface AppContextProviderProps {
 
 export const AppProvider = ({ children }: AppContextProviderProps) => {
   const [isBrowser, setIsBrowser] = useState(false);
+  const [modalRightIsOpen, setModalRightIsOpen] = useState(false);
   const [popularProducts, setPopularProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
@@ -24,12 +27,16 @@ export const AppProvider = ({ children }: AppContextProviderProps) => {
   const setGlobalPopularProducts = (products: IProduct[]) =>
     setPopularProducts(products);
 
+  const toggleModalRightIsOpen = () => setModalRightIsOpen(!modalRightIsOpen);
+
   return (
     <AppContext.Provider
       value={{
         isBrowser,
+        modalRightIsOpen,
         popularProducts,
         setGlobalPopularProducts,
+        toggleModalRightIsOpen,
       }}
     >
       {children}

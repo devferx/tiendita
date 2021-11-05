@@ -44,7 +44,7 @@ export const StyledHeader = styled.header`
     text-decoration: none;
   }
 
-  .cart-link {
+  .cart-btn {
     display: flex;
     order: 2;
     gap: 8px;
@@ -54,6 +54,8 @@ export const StyledHeader = styled.header`
     font: var(--button);
     border-radius: 8px;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
     background: var(--malachite);
   }
 
@@ -64,7 +66,7 @@ export const StyledHeader = styled.header`
       display: block;
       order: 3;
     }
-    .cart-link {
+    .cart-btn {
       order: 4;
     }
   }
