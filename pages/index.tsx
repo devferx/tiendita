@@ -9,11 +9,9 @@ import { useContext, useEffect } from "react";
 import { AppContext } from "@context/AppContext";
 import { ModalRight } from "@containers/home/components/ModalRight";
 
-import { data } from "./api/data";
-
 export const getStaticProps: GetStaticProps = async () => {
-  // const results = await fetch(`/api/products`);
-  const { discounts, popular } = data;
+  const results = await fetch(`${process.env.SERVER}/api/products`);
+  const { discounts, popular } = await results.json();
 
   return { props: { discounts, popular } };
 };
