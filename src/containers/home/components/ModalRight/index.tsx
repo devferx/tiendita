@@ -12,7 +12,8 @@ import { StyledModalRigth } from "./styles";
 export const ModalRight = () => {
   const { isBrowser, modalRightIsOpen, toggleModalRightIsOpen } =
     useContext(AppContext);
-  const { cart, clearCard } = useContext(CartContext);
+  const { cart, totalPrice, incrementCartItem, decrementCartItem, clearCard } =
+    useContext(CartContext);
 
   if (!isBrowser) return null;
 
@@ -31,13 +32,15 @@ export const ModalRight = () => {
         renderProduct={(cartItem) => (
           <ProductCartList.Item
             key={cartItem.product.name}
-            product={cartItem}
+            cartItem={cartItem}
+            decrementCartItem={decrementCartItem}
+            incrementCartItem={incrementCartItem}
           />
         )}
         renderFooter={() => (
           <ProductCartList.Footer
-            counter={6}
-            price={22.3}
+            counter={cart.length}
+            price={totalPrice}
             buy={() => {}}
             cleanCart={clearCard}
           />

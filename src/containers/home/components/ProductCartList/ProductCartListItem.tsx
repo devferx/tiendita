@@ -30,22 +30,32 @@ const Container = styled.div`
 `;
 
 interface ProductCartListItemProps {
-  product: CartItem;
+  cartItem: CartItem;
+  incrementCartItem: (productId: string) => void;
+  decrementCartItem: (productId: string) => void;
 }
 
-export const ProductCartListItem = ({ product }: ProductCartListItemProps) => {
+export const ProductCartListItem = ({
+  cartItem,
+  incrementCartItem,
+  decrementCartItem,
+}: ProductCartListItemProps) => {
   return (
     <Container>
-      <img className="img" src={product.product.imageURL} alt="" />
+      <img className="img" src={cartItem.product.imageURL} alt="" />
       <div className="desc">
-        <p className="title">{product.product.name}</p>
-        <p className="price">${product.product.price}</p>
+        <p className="title">{cartItem.product.name}</p>
+        <p className="price">${cartItem.product.price}</p>
       </div>
       <div style={{ flex: 1 }} />
       <ProductActions
-        quantity={product.quantity}
-        handleDecrement={() => {}}
-        handleIncrement={() => {}}
+        quantity={cartItem.quantity}
+        handleDecrement={() => {
+          decrementCartItem(cartItem.product.name);
+        }}
+        handleIncrement={() => {
+          incrementCartItem(cartItem.product.name);
+        }}
       />
     </Container>
   );

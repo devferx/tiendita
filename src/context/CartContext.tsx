@@ -8,7 +8,8 @@ import {
 
 interface CartContextProps extends CartState {
   addToCard: (product: CartItem) => void;
-  removeFromCard: (productId: string) => void;
+  incrementCartItem: (productId: string) => void;
+  decrementCartItem: (productId: string) => void;
   clearCard: () => void;
 }
 
@@ -24,7 +25,14 @@ export const CartProvider = ({ children }: AppContextProviderProps) => {
   const addToCard = (product: CartItem) => {
     dispatch({ type: "ADD_PRODUCT", payload: product });
   };
-  const removeFromCard = (productId: string) => {};
+
+  const incrementCartItem = (productId: string) => {
+    dispatch({ type: "INCREMENT_CART_ITEM", payload: productId });
+  };
+
+  const decrementCartItem = (productId: string) => {
+    dispatch({ type: "DECREMENT_CART_ITEM", payload: productId });
+  };
 
   const clearCard = () => {
     dispatch({ type: "CLEAR_CART" });
@@ -35,7 +43,8 @@ export const CartProvider = ({ children }: AppContextProviderProps) => {
       value={{
         ...state,
         addToCard,
-        removeFromCard,
+        incrementCartItem,
+        decrementCartItem,
         clearCard,
       }}
     >
