@@ -1,0 +1,67 @@
+import styled from "@emotion/styled";
+
+const Footer = styled.footer`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+  .btn-clean {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--boulder);
+    font: var(--body2-regular);
+  }
+
+  .btn-buy {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 8px 16px;
+    background: var(--malachite);
+    font: var(--body2-bold);
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    border-radius: 8px;
+
+    .counter {
+      background: #2e7e78;
+      padding: 0 8px;
+      border-radius: 4px;
+    }
+
+    .price {
+      font: var(--body2-regular);
+    }
+  }
+`;
+
+interface ProductCartListFooterProps {
+  counter: number;
+  price: number;
+  cleanCart: () => void;
+  buy: () => void;
+}
+
+export const ProductCartListFooter = ({
+  counter,
+  price,
+  cleanCart,
+  buy,
+}: ProductCartListFooterProps) => {
+  return (
+    <Footer>
+      <button className="btn-clean" onClick={cleanCart}>
+        Vaciar canasta
+      </button>
+      <button className="btn-buy" onClick={buy}>
+        <span className="counter">{counter}</span>
+        <span>Ir a pagar</span>
+        <span className="price">${price}</span>
+      </button>
+    </Footer>
+  );
+};
