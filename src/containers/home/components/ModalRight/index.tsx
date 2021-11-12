@@ -12,7 +12,7 @@ import { StyledModalRigth } from "./styles";
 export const ModalRight = () => {
   const { isBrowser, modalRightIsOpen, toggleModalRightIsOpen } =
     useContext(AppContext);
-  const { cart } = useContext(CartContext);
+  const { cart, clearCard } = useContext(CartContext);
 
   if (!isBrowser) return null;
 
@@ -39,7 +39,7 @@ export const ModalRight = () => {
             counter={6}
             price={22.3}
             buy={() => {}}
-            cleanCart={() => {}}
+            cleanCart={clearCard}
           />
         )}
       ></ProductCartList>

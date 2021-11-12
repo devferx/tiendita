@@ -14,7 +14,10 @@ export const initialCartState: CartState = {
   cartLength: 0,
 };
 
-type CartAction = { type: "ADD_PRODUCT"; payload: CartItem };
+type CartAction =
+  | { type: "ADD_PRODUCT"; payload: CartItem }
+  | { type: "CLEAR_CART" };
+
 export function cartReducer(state: CartState, action: CartAction): CartState {
   switch (action.type) {
     case "ADD_PRODUCT":
@@ -22,6 +25,12 @@ export function cartReducer(state: CartState, action: CartAction): CartState {
         ...state,
         cart: [...state.cart, action.payload],
         cartLength: state.cartLength + action.payload.quantity,
+      };
+    case "CLEAR_CART":
+      return {
+        ...state,
+        cart: [],
+        cartLength: 0,
       };
     default:
       return { ...state };

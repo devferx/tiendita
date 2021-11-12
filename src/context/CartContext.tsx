@@ -25,7 +25,10 @@ export const CartProvider = ({ children }: AppContextProviderProps) => {
     dispatch({ type: "ADD_PRODUCT", payload: product });
   };
   const removeFromCard = (productId: string) => {};
-  const clearCard = () => {};
+
+  const clearCard = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
 
   return (
     <CartContext.Provider
