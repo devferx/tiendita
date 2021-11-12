@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { CartItem } from "@context/cartReducer";
+import { ProductActions } from "../ProductActions";
 
 const Container = styled.div`
   display: flex;
@@ -38,10 +39,14 @@ export const ProductCartListItem = ({ product }: ProductCartListItemProps) => {
       <img className="img" src={product.product.imageURL} alt="" />
       <div className="desc">
         <p className="title">{product.product.name}</p>
-        <p className="price">{product.product.price}</p>
+        <p className="price">${product.product.price}</p>
       </div>
       <div style={{ flex: 1 }} />
-      <div>buttons</div>
+      <ProductActions
+        quantity={product.quantity}
+        handleDecrement={() => {}}
+        handleIncrement={() => {}}
+      />
     </Container>
   );
 };

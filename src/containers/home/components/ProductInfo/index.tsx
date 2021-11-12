@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { IProduct } from "@interfaces/product";
 import { StyledProductInfo } from "./styles";
 import { CartContext } from "@context/CartContext";
+import { ProductActions } from "../ProductActions";
 
 interface Props {
   product: IProduct;
@@ -13,12 +14,17 @@ export const ProductInfo = ({ product, toggleModal = () => {} }: Props) => {
   const [quantity, setQuantity] = useState(1);
   const { addToCard } = useContext(CartContext);
 
-  const handleIncrement = () => setQuantity(quantity + 1);
+  const handleIncrement = () => {
+    setQuantity(quantity + 1);
+  };
 
-  const handleDecrement = () => quantity > 1 && setQuantity(quantity - 1);
+  const handleDecrement = () => {
+    setQuantity((prevState) => Math.max(prevState - 1, 1));
+  };
 
   const handleAdd = () => {
     addToCard({ product, quantity });
+    setQuantity(1);
     toggleModal();
   };
 
@@ -41,15 +47,11 @@ export const ProductInfo = ({ product, toggleModal = () => {} }: Props) => {
         </div>
 
         <div className="actions">
-          <div className="counter">
-            <button onClick={handleDecrement}>
-              <img src="/assets/icons/remove.svg" alt="Remove" />
-            </button>
-            <p className="quantity">{quantity}</p>
-            <button onClick={handleIncrement}>
-              <img src="/assets/icons/add.svg" alt="Add" />
-            </button>
-          </div>
+          <ProductActions
+            quantity={quantity}
+            handleDecrement={handleDecrement}
+            handleIncrement={handleIncrement}
+          />
           <button className="add-btn" onClick={handleAdd}>
             Agregar
           </button>

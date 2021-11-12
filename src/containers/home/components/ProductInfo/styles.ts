@@ -44,24 +44,7 @@ export const StyledProductInfo = styled.section`
     gap: 24px;
     margin-top: 24px;
   }
-  .counter {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 8px 24px;
-    box-shadow: 0px 11px 29px rgba(0, 0, 0, 0.05);
-    background: #fefefe;
-    border-radius: 8px;
-  }
-  .counter button {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-  }
-  .quantity {
-    font: var(--body2-bold);
-  }
+
   .add-btn {
     width: 100%;
     padding: 12px 24px;
