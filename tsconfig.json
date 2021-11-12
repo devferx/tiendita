@@ -31,8 +31,8 @@
       "@interfaces/*": [
         "./src/interfaces/*"
       ],
-      "@shared/*": [
-        "./src/shared/*"
+      "@utils/*": [
+        "./src/utils/*"
       ]
     },
     "incremental": true
