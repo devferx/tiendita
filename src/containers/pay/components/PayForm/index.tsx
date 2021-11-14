@@ -14,6 +14,7 @@ export const PayForm = () => {
           id="email"
           name="email"
           placeholder="correo@exa.com"
+          required
         />
       </div>
 
@@ -25,9 +26,24 @@ export const PayForm = () => {
             type="number"
             name="card-number"
             placeholder="1234 1234 1234 1234"
+            required
           />
-          <input type="text" name="card-exp" placeholder="MM / YY" />
-          <input type="number" name="card-cvc" placeholder="CVC" />
+          <input
+            type="text"
+            name="card-exp"
+            placeholder="MM / YY"
+            minLength={5}
+            maxLength={5}
+            required
+          />
+          <input
+            type="number"
+            name="card-cvc"
+            placeholder="CVC"
+            min={100}
+            max={999}
+            required
+          />
         </div>
       </div>
 
@@ -38,6 +54,8 @@ export const PayForm = () => {
           id="card-name"
           name="card-name"
           placeholder="Lupito Perez"
+          minLength={3}
+          required
         />
       </div>
 
