@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ReactDOM from "react-dom";
+import { createPortal } from "react-dom";
 
 import { AppContext } from "@context/AppContext";
 import { CartContext } from "@context/CartContext";
@@ -17,7 +17,7 @@ export const ModalRight = () => {
 
   if (!isBrowser) return null;
 
-  return ReactDOM.createPortal(
+  return createPortal(
     <StyledModalRigth isActive={modalRightIsOpen}>
       <ProductCartList
         products={cart}
@@ -41,7 +41,7 @@ export const ModalRight = () => {
           <ProductCartList.Footer
             counter={cart.length}
             price={totalPrice}
-            buy={() => {}}
+            payRoute={"/pay"}
             cleanCart={clearCard}
           />
         )}

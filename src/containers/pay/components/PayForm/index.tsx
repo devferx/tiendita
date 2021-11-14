@@ -1,6 +1,10 @@
+import { useContext } from "react";
+
+import { CartContext } from "../../../../context/CartContext";
 import { FormStyled } from "./styles";
 
 export const PayForm = () => {
+  const { totalPrice } = useContext(CartContext);
   return (
     <FormStyled>
       <div className="form-control">
@@ -37,7 +41,7 @@ export const PayForm = () => {
         />
       </div>
 
-      <input className="submit" type="submit" value="Pagar $227.48" />
+      <input className="submit" type="submit" value={`Pagar $${totalPrice}`} />
     </FormStyled>
   );
 };

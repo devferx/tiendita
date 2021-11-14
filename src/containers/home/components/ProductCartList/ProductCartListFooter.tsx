@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "@emotion/styled";
 
 const Footer = styled.footer`
@@ -26,6 +27,7 @@ const Footer = styled.footer`
     cursor: pointer;
     color: var(--white);
     border-radius: 8px;
+    text-decoration: none;
 
     .counter {
       background: #2e7e78;
@@ -42,26 +44,29 @@ const Footer = styled.footer`
 interface ProductCartListFooterProps {
   counter: number;
   price: number;
+  payRoute: string;
   cleanCart: () => void;
-  buy: () => void;
 }
 
 export const ProductCartListFooter = ({
   counter,
   price,
   cleanCart,
-  buy,
+  payRoute,
 }: ProductCartListFooterProps) => {
   return (
     <Footer>
       <button className="btn-clean" onClick={cleanCart}>
         Vaciar canasta
       </button>
-      <button className="btn-buy" onClick={buy}>
-        <span className="counter">{counter}</span>
-        <span>Ir a pagar</span>
-        <span className="price">${price}</span>
-      </button>
+
+      <Link href={payRoute}>
+        <a className="btn-buy">
+          <span className="counter">{counter}</span>
+          <span>Ir a pagar</span>
+          <span className="price">${price}</span>
+        </a>
+      </Link>
     </Footer>
   );
 };

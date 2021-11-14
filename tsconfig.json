@@ -33,7 +33,10 @@
       ],
       "@utils/*": [
         "./src/utils/*"
-      ]
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ],
     },
     "incremental": true
   },
