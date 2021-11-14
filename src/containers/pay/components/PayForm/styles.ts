@@ -7,6 +7,7 @@ export const FormStyled = styled.form`
   width: 100%;
   padding-top: 16px;
   padding-bottom: 16px;
+  margin: 0 auto;
 
   .form-control {
     display: flex;
@@ -46,7 +47,7 @@ export const FormStyled = styled.form`
           box-shadow: none;
         }
 
-        input:first-child {
+        input:first-of-type {
           grid-column: 1 / 3;
         }
       }

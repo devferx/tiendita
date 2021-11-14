@@ -26,8 +26,8 @@ const Container = styled.aside<{ isActive: boolean }>`
 interface ProductCartListProps {
   isActive: boolean;
   products: CartItem[];
-  renderHeader: () => ReactNode;
-  renderFooter: () => ReactNode;
+  renderHeader?: () => ReactNode;
+  renderFooter?: () => ReactNode;
   renderProduct: (product: CartItem) => ReactNode;
   onEmptyProducts: () => ReactNode;
 }
@@ -42,16 +42,23 @@ export const ProductCartList = ({
 }: ProductCartListProps) => {
   return (
     <Container isActive={isActive}>
-      {renderHeader()}
+      {renderHeader && renderHeader()}
       {products.length === 0 ? (
         onEmptyProducts()
       ) : (
-        <section style={{ flex: 1, background: "var(--white)" }}>
+        <section
+          style={{
+            flex: 1,
+            width: "100%",
+            background: "var(--white)",
+            overflowY: "auto",
+          }}
+        >
           {products.map((p) => renderProduct(p))}
         </section>
       )}
 
-      {products.length !== 0 && renderFooter()}
+      {products.length !== 0 && renderFooter && renderFooter()}
     </Container>
   );
 };

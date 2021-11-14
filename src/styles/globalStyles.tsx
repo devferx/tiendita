@@ -43,6 +43,15 @@ export const GlobalStyles = () => (
         margin: 0 auto;
         padding: 0 40px;
       }
+
+      .pay-container {
+        display: flex;
+        flex-direction: column;
+        @media screen and (min-width: 1200px) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
     `}
   />
 );
