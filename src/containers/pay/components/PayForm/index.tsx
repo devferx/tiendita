@@ -1,12 +1,22 @@
-import { useContext } from "react";
+import { useContext, FormEvent } from "react";
 
-import { CartContext } from "../../../../context/CartContext";
+import { CartContext } from "@context/CartContext";
 import { FormStyled } from "./styles";
 
-export const PayForm = () => {
+interface PayFormProps {
+  toggleIsActiveModal: () => void;
+}
+
+export const PayForm = ({ toggleIsActiveModal }: PayFormProps) => {
   const { totalPrice } = useContext(CartContext);
+
+  const handleSubmit = (ev: FormEvent) => {
+    ev.preventDefault();
+    toggleIsActiveModal();
+  };
+
   return (
-    <FormStyled>
+    <FormStyled onSubmit={handleSubmit}>
       <div className="form-control">
         <label htmlFor="email">Correo electrónico</label>
         <input

@@ -22,6 +22,7 @@ class MyDocument extends Document {
           <div id="modal-root"></div>
           <div id="modal-right"></div>
           <div id="toaster"></div>
+          <div id="modal-success-buy"></div>
         </body>
       </Html>
     );
