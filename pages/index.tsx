@@ -1,3 +1,4 @@
+import { useContext, useEffect } from "react";
 import { GetStaticProps } from "next";
 import fetch from "isomorphic-unfetch";
 
@@ -5,7 +6,6 @@ import { Header } from "@containers/home/components/Header";
 import { Hero } from "@containers/home/components/Hero";
 import { ProductList } from "@containers/home/components/ProductList";
 import { IProduct } from "@interfaces/product";
-import { useContext, useEffect } from "react";
 import { AppContext } from "@context/AppContext";
 import { ModalRight } from "@containers/home/components/ModalRight";
 

@@ -30,7 +30,7 @@ export const ProductModal = ({
         <button className="btn-close" onClick={toggleModal}>
           <img src="/assets/icons/close.svg" alt="close icon" />
         </button>
-        <ProductInfo product={product} toggleModal={toggleModal} />
+        <ProductInfo product={product} />
         {isActive && (
           <ProductList
             title="Productos Recomendados"

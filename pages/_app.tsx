@@ -1,10 +1,10 @@
 import React from "react";
-import { Toaster } from "react-hot-toast";
 import type { AppProps } from "next/app";
 
 import { AppProvider } from "@context/AppContext";
 import { GlobalStyles } from "@styles/globalStyles";
 import { CartProvider } from "@context/CartContext";
+import { Toaster } from "@shared/components/Toaster";
 
 interface AppStateProps {
   children: React.ReactNode;
@@ -19,8 +19,8 @@ export const AppState = ({ children }: AppStateProps) => (
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <AppState>
-      <Toaster />
       <GlobalStyles />
+      <Toaster />
       <Component {...pageProps} />
     </AppState>
   );

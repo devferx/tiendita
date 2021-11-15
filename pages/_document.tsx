@@ -21,6 +21,7 @@ class MyDocument extends Document {
           <NextScript />
           <div id="modal-root"></div>
           <div id="modal-right"></div>
+          <div id="toaster"></div>
         </body>
       </Html>
     );

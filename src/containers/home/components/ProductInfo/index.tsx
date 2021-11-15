@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import toast from "react-hot-toast";
 
 import { IProduct } from "@interfaces/product";
 import { StyledProductInfo } from "./styles";
@@ -7,10 +8,9 @@ import { ProductActions } from "../ProductActions";
 
 interface Props {
   product: IProduct;
-  toggleModal?: () => void;
 }
 
-export const ProductInfo = ({ product, toggleModal = () => {} }: Props) => {
+export const ProductInfo = ({ product }: Props) => {
   const [quantity, setQuantity] = useState(1);
   const { addToCard } = useContext(CartContext);
 
@@ -25,7 +25,13 @@ export const ProductInfo = ({ product, toggleModal = () => {} }: Props) => {
   const handleAdd = () => {
     addToCard({ product, quantity });
     setQuantity(1);
-    toggleModal();
+    toast.success("Producto Agregado!", {
+      position: "top-right",
+      style: {
+        zIndex: 99999,
+        font: "var(--body2-regular)",
+      },
+    });
   };
 
   return (
